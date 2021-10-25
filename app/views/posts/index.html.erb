@@ -1,10 +1,21 @@
 <div class="contents row">
-  <% @posts.each do |post| %>
-    <div class="content_post" style="background-image: url(<%= post.image %>);">
-      <p><%= post.text %></p>
-      <span class="name">
-        <%= post.name %>
-      </span>
-    </div>
-  <% end %>
+      <% @posts.each do |post| %>
+        <div class='list'>
+					<div class='item-img-content'>
+						<%= image_tag post.image, class: "post-img" %>
+					</div>
+					<div class='post-info'>
+						<h3 class='cooking-name'>
+							<%= post.cooking_name%>
+						</h3>
+						<div class='price'>
+							<span><%= post.price %>円<br>
+						</div>
+						<div class='category-id'>
+							<%= post.category.name %>
+						</div>
+						</div>
+					</div>
+        </div>
+      <% end %>
 </div>
