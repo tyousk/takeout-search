@@ -3,6 +3,15 @@
         <div class='list'>
 					<div class='item-img-content'>
 						<%= image_tag post.image, class: "post-img" %>
+							<% if user_signed_in? && current_user.id == post.user_id %>
+								<li>
+									<%= link_to '削除', "/posts/#{post.id}", method: :delete %>
+								</li>
+								<li>
+									<%= link_to '編集', edit_post_path(post.id), method: :get %>
+								</li>
+							<% end %>
+						</div>
 					</div>
 					<div class='post-info'>
 						<h3 class='cooking-name'>
