@@ -3,6 +3,9 @@
         <div class='list'>
 					<div class='item-img-content'>
 						<%= image_tag post.image, class: "post-img" %>
+							<li>
+								<%= link_to '詳細', post_path(post.id), method: :get %>
+							</li>
 							<% if user_signed_in? && current_user.id == post.user_id %>
 								<li>
 									<%= link_to '削除', "/posts/#{post.id}", method: :delete %>
@@ -22,7 +25,6 @@
 						</div>
 						<div class='category-id'>
 							<%= post.category.name %>
-						</div>
 						</div>
 					</div>
         </div>
