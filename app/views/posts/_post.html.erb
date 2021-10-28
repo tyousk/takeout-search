@@ -1,0 +1,28 @@
+<div class='list'>
+	<div class='item-img-content'>
+		<%= image_tag post.image, class: "post-img" %>
+			<li>
+				<%= link_to '詳細', post_path(post.id), method: :get %>
+			</li>
+			<% if user_signed_in? && current_user.id == post.user_id %>
+				<li>
+					<%= link_to '削除', "/posts/#{post.id}", method: :delete %>
+				</li>
+				<li>
+					<%= link_to '編集', edit_post_path(post.id), method: :get %>
+				</li>
+			<% end %>
+		</div>
+	</div>
+	<div class='post-info'>
+		<h3 class='cooking-name'>
+			料理名：<span><%= post.cooking_name %><br>
+		</h3>
+		<div class='price'>
+			料金：<span><%= post.price %>円<br>
+		</div>
+		<div class='category-id'>
+			ジャンル：<span><%= post.category.name%><br>
+		</div>
+	</div>
+</div>

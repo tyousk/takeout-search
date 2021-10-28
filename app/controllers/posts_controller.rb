@@ -33,10 +33,13 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  def search
+    @posts = Post.search(params[:keyword])
+  end
 	private
 
 	def post_params
-    params.require(:post).permit(:cooking_name, :image, :category_id, :impression, :price, :opening, :closing, :prefecture_id,
-		:city, :address, :building).merge(user_id: current_user.id)
+    params.require(:post).permit(:cooking_name, :image, :category_id, :impression, :price, :store_name, :opening, :closing, :prefecture_id,
+		:city, :address, :building, :prefecture_id).merge(user_id: current_user.id)
   end
 end
