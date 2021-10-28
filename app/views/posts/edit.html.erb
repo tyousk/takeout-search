@@ -9,6 +9,7 @@
       <%= form.file_field :image %>
       <%= form.text_area :impression, placeholder: "料理の感想" %>
 			<%= form.text_area :price, placeholder: "料理の値段" %>
+			<%= form.text_area :store_name, placeholder: "お店の名前" %>
 			<%= form.label "営業時間", class: "p-label" %>
 			<%= form.time_field :opening, { prompt: true, ignore_data: true } %>　〜　<%= form.time_field :closing, { prompt: true, ignore_data: true } %>
 
