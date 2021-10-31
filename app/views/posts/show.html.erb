@@ -15,34 +15,25 @@
     </div>
     <div class='post-info'>
       <h3 class='cooking-name'>
-        <%= @post.cooking_name%>
+        <span>料理名：<%= @post.cooking_name %><br>
       </h3>
       <div class='price'>
-        <span><%= @post.price %>円<br>
+        <span>値段：<%= @post.price %>円<br>
       </div>
       <div class='category-id'>
-        <%= @post.category.name %>
+        <span>ジャンル：<%= @post.category.name %><br>
       </div>
       <h3 class='store-name'>
         店名：<span><%= @post.store_name %><br>
       </h3>
       <div class='opening'>
-        <span><%= @post.opening.strftime( "%H:%M" ) %>開店<br>
+        <span>開店時間：<%= @post.opening.strftime( "%H:%M" ) %><br>
       </div>
       <div class='closing'>
-        <span><%= @post.closing.strftime( "%H:%M" ) %>閉店<br>
+        <span>閉店時間：<%= @post.closing.strftime( "%H:%M" ) %><br>
       </div>
       <div class='prefecture-id'>
-        <%= @post.prefecture.name %>
-      </div>
-      <div class='city'>
-        <%= @post.city %>
-      </div>
-      <div class='address'>
-        <%= @post.address %>
-      </div>
-      <div class='building'>
-        <%= @post.building %>
+        <span>店住所：<%= @post.prefecture.name %><%= @post.city %><%= @post.address %><%= @post.building %><br>
       </div>
     </div>
 
