@@ -1,54 +1,51 @@
-<div class="contents row">
-  <div class="container">
-    <h2>Sign up</h2>
+<div class="contents new">
+  <div class="sign-up">
+    <h2>新規登録画面</h2>
     <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
       <div class="field">
-        <%= f.label :email %><br />
+        <%= f.label 'メールアドレス' %><br />
         <%= f.email_field :email %>
       </div>
 
       <div class="field">
-        <%= f.label :password %>
-        <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
+        <%= f.label 'パスワード（最小6文字）' %><br />
         <%= f.password_field :password, autocomplete: "off" %>
       </div>
 
       <div class="field">
-        <%= f.label :password_confirmation %><br />
+        <%= f.label 'パスワード確認' %><br />
         <%= f.password_field :password_confirmation, autocomplete: "off" %>
       </div>
 
       <div class="field">
-        <%= f.label :nickname %> <em>(40 characters maximum)</em><br />
+        <%= f.label 'ユーザーネーム' %> <em>(最大20文字)</em><br />
         <%= f.text_field :nickname, autofocus: true, maxlength: "40" %>
       </div>
 
       <div class="field">
-        <%= f.label :last_name %> <em>(20 characters maximum)</em><br />
+        <%= f.label '名字' %> <em>(最大10文字)</em><br />
         <%= f.text_field :last_name, autofocus: true, maxlength: "20" %>
       </div>
 
       <div class="field">
-        <%= f.label :last_name_kana %> <em>(20 characters maximum)</em><br />
+        <%= f.label '名字（フリガナ）' %> <em>(最大10文字・カタカナのみ)</em><br />
         <%= f.text_field :last_name_kana, autofocus: true, maxlength: "20" %>
       </div>
 
       <div class="field">
-        <%= f.label :first_name %> <em>(20 characters maximum)</em><br />
+        <%= f.label '名前' %> <em>(最大10文字)</em><br />
         <%= f.text_field :first_name, autofocus: true, maxlength: "20" %>
       </div>
 
       <div class="field">
-        <%= f.label :first_name_kana %> <em>(8 characters maximum)</em><br />
+        <%= f.label '名前（カナ）' %> <em>(最大10文字・カタカナのみ)</em><br />
         <%= f.text_field :first_name_kana, autofocus: true, maxlength: "20" %>
       </div>
 
       <div class='input-birth-wrap'>
-        <%= f.label :birth_day%> <br />
+        <%= f.label '誕生日'%> <br />
         <%= raw sprintf(
                     f.date_select(
                       :birth_day,class:'select-birth',
@@ -65,7 +62,7 @@
       <%= f.collection_select(:gender_id, Gender.all, :id, :name, {}, {class:"select-box", id:"gender-category"}) %>
       </div>
       <div class="actions">
-        <%= f.submit "Sign up" %>
+        <%= f.submit "新規登録" %>
       </div>
     <% end %>
   </div>

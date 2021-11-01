@@ -1,46 +1,33 @@
-<div class="contents row">
+<div class="content-show">
+  <h3 class='cooking-name'>
+    <%= @post.cooking_name%>
+  </h3>
+  <div class="more">
+    <%= image_tag @post.image %>
+    <% if user_signed_in? && current_user.id == @post.user_id %>
+      <div class='select-SD'>
+        <%= link_to '編集', edit_post_path(@post.id), method: :get %>
+        <%= link_to '削除', post_path(@post.id), method: :delete %>
+      </div>
+    <% end %>
+  </div>
+  <div class='post-info'>
+    <div class='impression'>
+      <span>評価：<%= @post.impression %><br>
+    </div>
+    <div class='price'>
+      <span>料金：<%= @post.price %>円<br>
+    </div>
+    <div class='category-id'>
+      <span>ジャンル：<%= @post.category.name %><br>
+    </div>
+    <div class='opening-time'>
+      <span>営業時間:<%= @post.opening.strftime( "%H:%M" ) %>〜<%= @post.closing.strftime( "%H:%M" ) %><br>
+    </div>
+    <div class='address'>
+      <span>住所:<%= @post.prefecture.name %><%= @post.city %><%= @post.address %><%= @post.building %><br>
+    </div>
 
-    <div class="more">
-      <%= image_tag @post.image %>
-      <% if user_signed_in? && current_user.id == @post.user_id %>
-        <ul class="more_list">
-          <li>
-            <%= link_to '編集', edit_post_path(@post.id), method: :get %>
-          </li>
-          <li>
-            <%= link_to '削除', post_path(@post.id), method: :delete %>
-          </li>
-        </ul>
-      <% end %>
-    </div>
-    <div class='post-info'>
-      <h3 class='cooking-name'>
-        <%= @post.cooking_name%>
-      </h3>
-      <div class='price'>
-        <span><%= @post.price %>円<br>
-      </div>
-      <div class='category-id'>
-        <%= @post.category.name %>
-      </div>
-      <div class='opening'>
-        <span><%= @post.opening %>開店<br>
-      </div>
-      <div class='closing'>
-        <span><%= @post.closing %>閉店<br>
-      </div>
-      <div class='prefecture-id'>
-        <%= @post.prefecture.name %>
-      </div>
-      <div class='city'>
-        <%= @post.city %>
-      </div>
-      <div class='address'>
-        <%= @post.address %>
-      </div>
-      <div class='building'>
-        <%= @post.building %>
-      </div>
-    </div>
+  </div>
 
 </div>
