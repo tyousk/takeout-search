@@ -1,40 +1,37 @@
-<div class="contents row">
-
-    <div class="more">
-      <%= image_tag @post.image %>
-      <% if user_signed_in? && current_user.id == @post.user_id %>
-        <ul class="more_list">
-          <li>
-            <%= link_to '編集', edit_post_path(@post.id), method: :get %>
-          </li>
-          <li>
-            <%= link_to '削除', post_path(@post.id), method: :delete %>
-          </li>
-        </ul>
-      <% end %>
+<div class="content-show">
+  <h3 class='cooking-name'>
+    <%= @post.cooking_name%>
+  </h3>
+  <div class="more">
+    <%= image_tag @post.image %>
+    <% if user_signed_in? && current_user.id == @post.user_id %>
+      <div class='select-SD'>
+        <%= link_to '編集', edit_post_path(@post.id), method: :get %>
+        <%= link_to '削除', post_path(@post.id), method: :delete %>
+      </div>
+    <% end %>
+  </div>
+  <div class='post-info'>
+    <div class='impression'>
+      <span>評価：<%= @post.impression %><br>
     </div>
+    <div class='price'>
+      <span>料金：<%= @post.price %>円<br>
+    </div>
+    <div class='category-id'>
+      <span>ジャンル：<%= @post.category.name %><br>
     <div class='post-info'>
-      <h3 class='cooking-name'>
-        <span>料理名：<%= @post.cooking_name %><br>
-      </h3>
-      <div class='price'>
-        <span>値段：<%= @post.price %>円<br>
-      </div>
-      <div class='category-id'>
-        <span>ジャンル：<%= @post.category.name %><br>
-      </div>
-      <h3 class='store-name'>
-        店名：<span><%= @post.store_name %><br>
-      </h3>
-      <div class='opening'>
-        <span>開店時間：<%= @post.opening.strftime( "%H:%M" ) %><br>
-      </div>
-      <div class='closing'>
-        <span>閉店時間：<%= @post.closing.strftime( "%H:%M" ) %><br>
-      </div>
-      <div class='prefecture-id'>
-        <span>店住所：<%= @post.prefecture.name %><%= @post.city %><%= @post.address %><%= @post.building %><br>
-      </div>
+    <h3 class='store-name'>
+      店名：<span><%= @post.store_name %><br>
+    </h3>
     </div>
+    <div class='opening-time'>
+      <span>営業時間:<%= @post.opening.strftime( "%H:%M" ) %>〜<%= @post.closing.strftime( "%H:%M" ) %><br>
+    </div>
+    <div class='address'>
+      <span>住所:<%= @post.prefecture.name %><%= @post.city %><%= @post.address %><%= @post.building %><br>
+    </div>
+
+  </div>
 
 </div>

@@ -10,12 +10,13 @@
 .input-birth-wrap {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .input-birth-wrap select {
   width: 75px;
   margin-top: 5px;
-  height: 45px;
+  height: 30px;
   padding-left: 10px;
   border-radius: 4px;
   border: 1px solid #ccc;
