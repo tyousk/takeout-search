@@ -20,6 +20,10 @@
     </div>
     <div class='category-id'>
       <span>ジャンル：<%= @post.category.name %><br>
+    <div class='post-info'>
+    <h3 class='store-name'>
+      店名：<span><%= @post.store_name %><br>
+    </h3>
     </div>
     <div class='opening-time'>
       <span>営業時間:<%= @post.opening.strftime( "%H:%M" ) %>〜<%= @post.closing.strftime( "%H:%M" ) %><br>
