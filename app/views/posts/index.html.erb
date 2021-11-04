@@ -7,31 +7,13 @@
 			<% end %>
 			<p>カテゴリ</p>
 			<%= search_form_for @q, url: post_category_path do |f| %>
-					<%= f.collection_select :category_id_eq, Category.where.not(id: 0), :id, :name, include_blank: "カテゴリー検索" %>
+					<%= f.collection_select :category_id_eq, Category.where.not(id: 0), :id, :name, include_blank: "料理のジャンル検索" %>
 					<%= f.submit '検索' %>
 			<% end %>
 	</div>
 	<div class="content-area">
 		<% @posts.each do |post| %>
-			<div class='content'>
-				<h3 class='cooking-name'>
-					<%= post.cooking_name%>
-				</h3>
-				<div class='price'>
-					<span>値段：<%= post.price %>円<br>
-				</div>
-				<div class='category-id'>
-					<span>ジャンル：<%= post.category.name %><br>
-				</div>
-				<%= link_to (image_tag post.image), post_path(post.id) %>
-				<div class='content-link'>
-					<%= link_to '詳細', post_path(post.id), method: :get %>
-					<% if user_signed_in? && current_user.id == post.user_id %>
-						<%= link_to '削除', "/posts/#{post.id}", method: :delete %>
-						<%= link_to '編集', edit_post_path(post.id), method: :get %>
-					<% end %>
-				</div>
-			</div>
+			<%= render partial: "post", locals: { post: post } %>
 		<% end %>
 	</div>
 </main>
