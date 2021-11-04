@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
-  before_action :search_category_post, only: [:index, :category]
-
+  before_action :search_category_post, only: [:index, :category, :show, :prefecture, :search]
+  before_action :search_prefecture_post, only: [:index, :category, :show, :prefecture, :search]
 	def index
     @posts = Post.all
   end
@@ -46,6 +46,12 @@ class PostsController < ApplicationController
     @category = Category.find_by(id: category_id)
   end
 
+  def prefecture
+    @posts = @p.result
+    prefecture_id = params[:q][:prefecture_id_eq]
+    @prefecture = Prefecture.find_by(id: prefecture_id)
+  end
+
 	private
 
 	def post_params
@@ -55,5 +61,9 @@ class PostsController < ApplicationController
 
   def search_category_post
     @q = Post.ransack(params[:q])
+  end
+
+  def search_prefecture_post
+    @p = Post.ransack(params[:q])
   end
 end

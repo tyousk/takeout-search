@@ -22,7 +22,7 @@ body{
 }
 .header{
   height: 100px;
-  background-color: #eee;
+  background-color: rgb(207, 225, 239);
   text-align: center;
 }
 main{
@@ -70,4 +70,9 @@ main{
 }
 .actions{
   padding-top: 20px;
+}
+.search-input{
+  width: 60%;
+}
+.post_search{
 }
