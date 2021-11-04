@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+
+  before_action :search_category_post, only: [:index, :category]
+
 	def index
     @posts = Post.all
   end
@@ -36,10 +39,21 @@ class PostsController < ApplicationController
   def search
     @posts = Post.search(params[:keyword])
   end
+
+  def category
+    @posts = @q.result
+    category_id = params[:q][:category_id_eq]
+    @category = Category.find_by(id: category_id)
+  end
+
 	private
 
 	def post_params
     params.require(:post).permit(:cooking_name, :image, :category_id, :impression, :price, :store_name, :opening, :closing, :prefecture_id,
 		:city, :address, :building, :prefecture_id).merge(user_id: current_user.id)
+  end
+
+  def search_category_post
+    @q = Post.ransack(params[:q])
   end
 end
