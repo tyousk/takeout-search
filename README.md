@@ -26,7 +26,7 @@
 - 投稿一覧表示
 - 検索機能
 - ジャンル別・都道府県別絞り込み機能
-
+![トップページ.jpg](./app/assets/images/トップページ.jpg)
 
 
 ##  ユーザー管理機能
@@ -68,4 +68,4 @@
 	VSCode
 
 # **DB設計（ER図）**
-
+![aafeecfbf33a013a71c932b7ce507b14.png](./app/assets/images/aafeecfbf33a013a71c932b7ce507b14.png)
