@@ -1,24 +1,22 @@
-# README
+# **アプリ名**
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**takeout-search**
 
-Things you may want to cover:
+# **概要**
 
-* Ruby version
+**テイクアウト専用の口コミ投稿サイト**
 
-* System dependencies
+- 口コミの閲覧・検索・絞り込み表示は未ログインで可能
+- 口コミ投稿はユーザー登録・ログイン必須
 
-* Configuration
+# **本番環境**
 
-* Database creation
+ https://takeout-search.herokuapp.com/
 
-* Database initialization
+テスト用ログインアカウント
 
-* How to run the test suite
+- Eメール：test1@test
+- パスワード：1111111a
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# **制作背景**
+昨今の世情により、外食に抵抗のある人が増えていること、それに伴って飲食店もテイクアウト・デリバリー可能または限定のお店が増えてきていることを考え、テイクアウトできる料理・お店の情報を集められたら便利だと思い作成しました。

@@ -10,7 +10,7 @@
       </div>
 
       <div class="field">
-        <%= f.label 'パスワード（最小6文字）' %><br />
+        <%= f.label 'パスワード（半角英数字をそれぞれ1種類以上含む8文字以上100文字以下）' %><br />
         <%= f.password_field :password, autocomplete: "off" %>
       </div>
 
@@ -20,27 +20,27 @@
       </div>
 
       <div class="field">
-        <%= f.label 'ユーザーネーム' %> <em>(最大20文字)</em><br />
-        <%= f.text_field :nickname, autofocus: true, maxlength: "40" %>
+        <%= f.label 'ユーザーネーム' %> <em></em><br />
+        <%= f.text_field :nickname, autofocus: true, maxlength: "20" %>
       </div>
 
       <div class="field">
-        <%= f.label '名字' %> <em>(最大10文字)</em><br />
+        <%= f.label '名字' %> <em></em><br />
         <%= f.text_field :last_name, autofocus: true, maxlength: "20" %>
       </div>
 
       <div class="field">
-        <%= f.label '名字（フリガナ）' %> <em>(最大10文字・カタカナのみ)</em><br />
+        <%= f.label '名字（フリガナ）' %> <em>(カタカナのみ)</em><br />
         <%= f.text_field :last_name_kana, autofocus: true, maxlength: "20" %>
       </div>
 
       <div class="field">
-        <%= f.label '名前' %> <em>(最大10文字)</em><br />
+        <%= f.label '名前' %> <em></em><br />
         <%= f.text_field :first_name, autofocus: true, maxlength: "20" %>
       </div>
 
       <div class="field">
-        <%= f.label '名前（カナ）' %> <em>(最大10文字・カタカナのみ)</em><br />
+        <%= f.label '名前（カナ）' %> <em>(カタカナのみ)</em><br />
         <%= f.text_field :first_name_kana, autofocus: true, maxlength: "20" %>
       </div>
 
@@ -58,7 +58,7 @@
                     "<div> 年 </div>", "<div> 月 </div>") + "<div> 日 </div>" %>
       </div>
       <div class="field">
-      <%= f.label :gender%> <br />
+      <%= f.label '性別'%> <br />
       <%= f.collection_select(:gender_id, Gender.all, :id, :name, {}, {class:"select-box", id:"gender-category"}) %>
       </div>
       <div class="actions">
