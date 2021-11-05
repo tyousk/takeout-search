@@ -2,6 +2,7 @@ class PostsController < ApplicationController
 
   before_action :search_category_post, only: [:index, :category, :show, :prefecture, :search]
   before_action :search_prefecture_post, only: [:index, :category, :show, :prefecture, :search]
+  
 	def index
     @posts = Post.all
   end
