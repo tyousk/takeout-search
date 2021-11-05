@@ -7,4 +7,6 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
+  get '/post/category', to: "posts#category"
+  get '/post/prefecture', to: "posts#prefecture"
 end

@@ -1,28 +1,19 @@
-<div class='list'>
-	<div class='item-img-content'>
-		<%= image_tag post.image, class: "post-img" %>
-			<li>
-				<%= link_to '詳細', post_path(post.id), method: :get %>
-			</li>
-			<% if user_signed_in? && current_user.id == post.user_id %>
-				<li>
-					<%= link_to '削除', "/posts/#{post.id}", method: :delete %>
-				</li>
-				<li>
-					<%= link_to '編集', edit_post_path(post.id), method: :get %>
-				</li>
-			<% end %>
-		</div>
+<div class='content'>
+	<h3 class='cooking-name'>
+		<%= post.cooking_name%>
+	</h3>
+	<div class='price'>
+		<span>値段：<%= post.price %>円<br>
 	</div>
-	<div class='post-info'>
-		<h3 class='cooking-name'>
-			料理名：<span><%= post.cooking_name %><br>
-		</h3>
-		<div class='price'>
-			料金：<span><%= post.price %>円<br>
-		</div>
-		<div class='category-id'>
-			ジャンル：<span><%= post.category.name%><br>
-		</div>
+	<div class='category-id'>
+		<span>ジャンル：<%= post.category.name %><br>
+	</div>
+	<%= link_to (image_tag post.image), post_path(post.id) %>
+	<div class='content-link'>
+		<%= link_to '詳細', post_path(post.id), method: :get %>
+		<% if user_signed_in? && current_user.id == post.user_id %>
+			<%= link_to '削除', "/posts/#{post.id}", method: :delete %>
+			<%= link_to '編集', edit_post_path(post.id), method: :get %>
+		<% end %>
 	</div>
 </div>
