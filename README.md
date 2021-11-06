@@ -26,7 +26,7 @@
 - 投稿一覧表示
 - 検索機能
 - ジャンル別・都道府県別絞り込み機能
-![トップページ.jpg](./app/assets/images/トップページ.jpg)
+![toppage.jpg](./app/assets/images/toppage.jpg)
 
 
 ##  ユーザー管理機能
