@@ -33,15 +33,14 @@
 - 新規ユーザー登録
 - ログイン
 - ログアウト
-
-
+![usernew.png](./app/assets/images/usernew.png)
+![singin.png](./app/assets/images/signin.png)
 ##  投稿詳細画面
-
+![postshow.jpeg](./app/assets/images/postshow.jpeg)
 
 
 ##  新規投稿画面
-
-
+![postnew.png](./app/assets/images/postnew.png)
 
 
 # **工夫した点**
