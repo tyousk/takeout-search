@@ -1,10 +1,9 @@
 class PostsController < ApplicationController
 
-  before_action :search_category_post, only: [:index, :category, :show, :prefecture, :search]
-  before_action :search_prefecture_post, only: [:index, :category, :show, :prefecture, :search]
+  before_action :search_post_form,only: [:index, :search_post]
   
 	def index
-    @posts = Post.all
+    @posts = Post.all.order(created_at:"desc")
   end
 
 	def new
@@ -37,22 +36,11 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
-  def search
-    @posts = Post.search(params[:keyword])
-  end
+  def search_post
 
-  def category
-    @posts = @q.result
-    category_id = params[:q][:category_id_eq]
-    @category = Category.find_by(id: category_id)
-  end
+    @results = @p.result.order(created_at:"desc")
 
-  def prefecture
-    @posts = @p.result
-    prefecture_id = params[:q][:prefecture_id_eq]
-    @prefecture = Prefecture.find_by(id: prefecture_id)
   end
-
 	private
 
 	def post_params
@@ -60,11 +48,7 @@ class PostsController < ApplicationController
 		:city, :address, :building, :prefecture_id).merge(user_id: current_user.id)
   end
 
-  def search_category_post
-    @q = Post.ransack(params[:q])
-  end
-
-  def search_prefecture_post
-    @p = Post.ransack(params[:q])
+  def search_post_form
+    @p = Post.ransack(params[:q]) 
   end
 end
