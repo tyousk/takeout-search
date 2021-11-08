@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :search_post_form, only: [:index, :search_post]
+  before_action :search_post_form, only: [:index, :search_post, :show]
 
   def index
     @posts = Post.all.order(created_at: 'desc')

@@ -1,7 +1,22 @@
 <div class="side-area">
-    <p>カテゴリ</p>
-    
-      </div>
+	<div class="search-form">
+		<p>料理名検索</p>
+		<%= search_form_for @p, url: posts_searchpost_path do |f| %>
+
+			<%= f.search_field :cooking_name_cont%>
+
+			<p>
+				<%= f.label '料理のジャンル'%><br/>
+				<%= f.collection_select :category_id_eq,Category.all,:id,:name,include_blank: '指定なし' %>
+			</p>
+			<p>
+				<%= f.label '都道府県'%><br/>
+				<%= f.collection_select :prefecture_id_eq,Prefecture.all,:id,:name,include_blank: '指定なし' %>
+			</p>
+			<%= f.submit '検索' %>
+		<% end %>
+	</div>
+</div>
 <div class="content">
   <h3 class='cooking-name'>
     <%= @post.cooking_name%>
