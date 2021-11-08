@@ -1,0 +1,48 @@
+<div class="side-area">
+	<div class="search-form">
+		<p>料理名検索</p>
+		<%= search_form_for @p, url: posts_searchpost_path do |f| %>
+
+			<%= f.search_field :cooking_name_cont%>
+
+			<p>
+				<%= f.label '料理のジャンル'%><br/>
+				<%= f.collection_select :category_id_eq,Category.all,:id,:name,include_blank: '指定なし' %>
+			</p>
+			<p>
+				<%= f.label '都道府県'%><br/>
+				<%= f.collection_select :prefecture_id_eq,Prefecture.all,:id,:name,include_blank: '指定なし' %>
+			</p>
+			<%= f.submit '検索' %>
+		<% end %>
+	</div>
+</div>
+<% if @results.length !=0 %>
+<div class="content-area">
+	<% @results.each do |post| %>
+		<div class='content'>
+			<h3 class='cooking-name'>
+				<%= post.cooking_name%>
+			</h3>
+			<div class='price'>
+				<span>値段：<%= post.price %>円<br>
+			</div>
+			<div class='category-id'>
+				<span>ジャンル：<%= post.category.name %><br>
+			</div>
+			<%= link_to (image_tag post.image), post_path(post.id) %>
+			<div class='content-link'>
+				<%= link_to '詳細', post_path(post.id), method: :get %>
+				<% if user_signed_in? && current_user.id == post.user_id %>
+					<%= link_to '削除', "/posts/#{post.id}", method: :delete %>
+					<%= link_to '編集', edit_post_path(post.id), method: :get %>
+				<% end %>
+			</div>
+		</div>
+	<% end %>
+</div>
+
+<% else %>
+  条件に合う投稿は見つかりません
+<% end %>
+<br>
